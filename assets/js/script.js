@@ -1,5 +1,5 @@
 console.log("this is a test");
-
+var bandButtonEl = document.getElementById("band-button");
 
 
 
@@ -47,8 +47,20 @@ const initMap = function () {
 
 
 
+  function getApi() {
+    // fetch request gets a list of all the repos for the node.js organization
+    var requestUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?size=20&apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr';
+  
+    fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data._embedded.events[0].name);
+      });
+  }
 
-
+bandButtonEl.addEventListener('click', getApi);
 
 
 
@@ -65,11 +77,12 @@ const initMap = function () {
 
 // $.ajax({
 //     type:"GET",
-//     url:"https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&postalCode=30080&radius=100&locale=*&startDateTime=2022-07-05T13:09:00Z&endDateTime=2022-07-31T13:09:00Z",
-//     async:true,
+//     url:"https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr",
+//     // async:true,
 //     dataType: "json",
+
 //     success: function(json) {
-//                 // console.log(json);
+//                 console.log(json);
 //                 // Parse the response.
 
 //                 // Do other things.
@@ -83,8 +96,10 @@ const initMap = function () {
 
 // fetch(mainURL)
 //     .then(function(response){
-//         return.response.json();
+//       var test = response.json();
+//       console.log(test);
 //     })
-//     .then(function(data){
-//         for var 
-//     })
+//     // .then(function(data){
+//     //     for var 
+//     // })
+// https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&postalCode=30080&radius=100&locale=*&startDateTime=2022-07-05T13:09:00Z&endDateTime=2022-07-31T13:09:00Z

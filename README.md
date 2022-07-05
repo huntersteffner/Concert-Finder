@@ -57,6 +57,15 @@ To be Added
     * Added README.md template
     * Added links to style.css and script.js and tested to ensure they were properly linked
 
-** 0.01 - Initial testing of basic functions and webpage setup **
+**0.01 - Initial testing of basic functions and webpage setup**
     * Added JQuery call to HTML
     * Added Google maps call to HTML
+    * Set up general layout
+    * Displayed local map on page
+    * Designed General Wireframe of Website
+
+**0.02 - Added Beginning code for accessing ticketmaster events**
+    * Changed first button to id= band-button
+    * Assigned band-button to var bandButtonEl in JS
+    * Fetch'd Ticketmaster events and found event name in object respons
+    * Displayed 1 event name to console as test 
