@@ -79,12 +79,12 @@ const initMap = function () {
 //              }
 //   });
 
-var mainURL = 'https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr';
+// var mainURL = 'https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr';
 
-fetch(mainURL)
-    .then(function(response){
-        return.response.json();
-    })
-    .then(function(data){
-        for var 
-    })
+// fetch(mainURL)
+//     .then(function(response){
+//         return.response.json();
+//     })
+//     .then(function(data){
+//         for var 
+//     })
