@@ -57,4 +57,6 @@ To be Added
     * Added README.md template
     * Added links to style.css and script.js and tested to ensure they were properly linked
 
-
+** 0.01 - Initial testing of basic functions and webpage setup **
+    * Added JQuery call to HTML
+    * Added Google maps call to HTML
