@@ -23,7 +23,14 @@ const initMap = function () {
 
 window.initMap = initMap;
 
+var map = L.map('map').setView([33.74, -84.38], 12);
+var marker = L.marker([33.74, -84.38]).addTo(map);
+marker.bindPopup("<b>This marker can point to concert locations</b><br>It could also have other relavent information, such as date, indoor/outdoor, weather, etc.").openPopup();
 
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map);
 
 
 
@@ -64,7 +71,8 @@ function getApi() {
         });
 }
 
-bandButtonEl.addEventListener('click', getApi);
+getApi()
+// bandButtonEl.addEventListener('click', getApi);
 
 
 
