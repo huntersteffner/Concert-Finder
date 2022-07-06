@@ -67,6 +67,7 @@ var bandButtonEl = document.getElementById("band-button");
       });
   }
 
+  getApi()
 // bandButtonEl.addEventListener('click', getApi);
 
 
