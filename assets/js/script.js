@@ -38,18 +38,23 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Shared secret	596cec3680a048608375b6758853cd94
 // Registered to	huntersteffner
 
-let searchEntry = 'Imagine Dragons'
+let searchEntry = 'Creedence Clearwater Revival'
+searchEntry = searchEntry.replaceAll(' ', '-')
+console.log(searchEntry)
 
 let fetchedObject
 let testImg
 
-fetch('http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=imagine&api_key=c34e1d9396ec00f422f5ee6f423a0503&format=json').then(function(res) {
+
+
+fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${searchEntry}&api_key=c34e1d9396ec00f422f5ee6f423a0503&format=json`).then(function(res) {
   return res.json()
 }).then(function(data) {
   console.log(data)
   testImg = `<img src="${data.results.artistmatches.artist[0]}" alt="">`
   console.log(testImg)
 })
+
 
 
 
