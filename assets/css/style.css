@@ -1,10 +1,14 @@
-p{
-    color:orangered
-}
 
-#map {
-    height: 400px;
-  /* The height is 400 pixels */
-  width: 100%;
-  /* The width is the width of the web page */
-}
+
+.jumbotron {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtZA1wzBKWZm-J4lNTu15Djlu7WrX8RNMf2A&usqp=CAU');
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    }
+    
+    .jumbotron .container {
+    position: relative;
+    top:100px;
+    }
+    
