@@ -33,8 +33,23 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
+// Application name	Concert Finder
+// API key	c34e1d9396ec00f422f5ee6f423a0503
+// Shared secret	596cec3680a048608375b6758853cd94
+// Registered to	huntersteffner
 
+let searchEntry = 'Imagine Dragons'
 
+let fetchedObject
+let testImg
+
+fetch('http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=imagine&api_key=c34e1d9396ec00f422f5ee6f423a0503&format=json').then(function(res) {
+  return res.json()
+}).then(function(data) {
+  console.log(data)
+  testImg = `<img src="${data.results.artistmatches.artist[0]}" alt="">`
+  console.log(testImg)
+})
 
 
 
