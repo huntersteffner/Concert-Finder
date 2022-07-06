@@ -5,23 +5,23 @@ var bandButtonEl = document.getElementById("band-button");
 
 
 
-// Initialize and add the map
-const initMap = function () {
-    // The location of Atlanta
-    const atlanta = { lat: 33.74, lng: -84.38 };
-    // The map, centered at Atlanta
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 10,
-        center: atlanta,
-    });
-    // The marker, positioned at Uluru
-    const marker = new google.maps.Marker({
-        position: atlanta,
-        map: map,
-    });
-}
+// // Initialize and add the map
+// const initMap = function () {
+//     // The location of Atlanta
+//     const atlanta = { lat: 33.74, lng: -84.38 };
+//     // The map, centered at Atlanta
+//     const map = new google.maps.Map(document.getElementById("map"), {
+//         zoom: 10,
+//         center: atlanta,
+//     });
+//     // The marker, positioned at Uluru
+//     const marker = new google.maps.Marker({
+//         position: atlanta,
+//         map: map,
+//     });
+// }
 
-window.initMap = initMap;
+// window.initMap = initMap;
 
 var map = L.map('map').setView([33.74, -84.38], 12);
 var marker = L.marker([33.74, -84.38]).addTo(map);
@@ -73,7 +73,6 @@ function getApi() {
 
 getApi()
 // bandButtonEl.addEventListener('click', getApi);
-
 
 
 
