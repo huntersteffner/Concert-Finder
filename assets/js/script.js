@@ -38,7 +38,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Shared secret	596cec3680a048608375b6758853cd94
 // Registered to	huntersteffner
 
-let searchEntry = 'Creedence Clearwater Revival'
+let searchEntry = 'Imagine Dragons'
 searchEntry = searchEntry.replaceAll(' ', '-')
 console.log(searchEntry)
 
