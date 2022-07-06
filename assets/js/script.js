@@ -1,6 +1,6 @@
-console.log("this is a test");
 var bandButtonEl = document.getElementById("band-button");
-
+var bandNameSearch = 'Imagine Dragons';
+var bands = [];
 
 
 
@@ -56,7 +56,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 function getApi() {
     // fetch request gets a list of objects for all ticketmaster music events
-    var requestUrl = 'https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&locale=*&stateCode=MI&segmentName=Music&size=200';
+    var requestUrl = 'https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&locale=*&stateCode=GA&segmentName=Music&size=200';
 
     fetch(requestUrl)
         .then(function (response) {
@@ -65,15 +65,27 @@ function getApi() {
         .then(function (data) {
             // console.log(data);
             for (var i = 0; i < data._embedded.events.length; i++) {
-                // console.log(data._embedded.events[i]);
-                console.log(data._embedded.events[i].name); //Artist name   
-                console.log(data._embedded.events[i]._embedded.venues[0].name); //Venue Name
-                console.log(data._embedded.events[i]._embedded.venues[0].address.line1);    //Street Address
-                console.log(data._embedded.events[i]._embedded.venues[0].city.name);        //City
-                console.log(data._embedded.events[i]._embedded.venues[0].state.stateCode);  //State Abbrev
-                console.log(data._embedded.events[i]._embedded.venues[0].postalCode);       //Zip Code
-                
+                var eventInfo = data._embedded.events[i];
+                for(var q = 0; q < eventInfo._embedded.attactions.length; q++){
+                bands.push(eventInfo._embedded.attactions[q].name); //Add artist's name to bands array
+                }   
+                // console.log(data._embedded.events[i]._embedded.venues[0].name); //Venue Name
+                // console.log(data._embedded.events[i]._embedded.venues[0].address.line1);    //Street Address
+                // console.log(data._embedded.events[i]._embedded.venues[0].city.name);        //City
+                // console.log(data._embedded.events[i]._embedded.venues[0].state.stateCode);  //State Abbrev
+                // console.log(data._embedded.events[i]._embedded.venues[0].postalCode);       //Zip Code
             }
+            console.log(bands);
+            // console.log(bandNameSearch);
+            // for(var y=0; y<bands.length; y++){
+            //     if(bandNameSearch == bands[y]){
+            //         console.log(data._embedded.events[y]._embedded.venues[0].name); //Venue Name
+            //     console.log(data._embedded.events[y]._embedded.venues[0].address.line1);    //Street Address
+            //     console.log(data._embedded.events[y]._embedded.venues[0].city.name);        //City
+            //     console.log(data._embedded.events[y]._embedded.venues[0].state.stateCode);  //State Abbrev
+            //     console.log(data._embedded.events[y]._embedded.venues[0].postalCode);       //Zip Code
+            //     }
+            // }
         });
 }
 
