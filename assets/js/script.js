@@ -76,23 +76,29 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${searchEnt
 
 function getApi() {
     // fetch request gets a list of objects for all ticketmaster music events
-    var requestUrl = 'https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&locale=*&page=20&segmentName=Music';
+    var requestUrl = 'https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&locale=*&stateCode=MI&segmentName=Music&size=200';
 
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
+            // console.log(data);
             for (var i = 0; i < data._embedded.events.length; i++) {
                 // console.log(data._embedded.events[i]);
-                console.log(data._embedded.events[i].name);
-                console.log(data._embedded.events[i]._embedded.venues[0].address.line1);
+                console.log(data._embedded.events[i].name); //Artist name   
+                console.log(data._embedded.events[i]._embedded.venues[0].name); //Venue Name
+                console.log(data._embedded.events[i]._embedded.venues[0].address.line1);    //Street Address
+                console.log(data._embedded.events[i]._embedded.venues[0].city.name);        //City
+                console.log(data._embedded.events[i]._embedded.venues[0].state.stateCode);  //State Abbrev
+                console.log(data._embedded.events[i]._embedded.venues[0].postalCode);       //Zip Code
+                
             }
         });
 }
 
-getApi()
-// bandButtonEl.addEventListener('click', getApi);
+// getApi()
+bandButtonEl.addEventListener('click', getApi);
 
 
 
