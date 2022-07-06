@@ -1,5 +1,5 @@
 var bandButtonEl = document.getElementById("band-button");
-var bandNameSearch = 'Imagine Dragons';
+var bandNameSearch = 'Chris Stapleton';
 var bands = [];
 
 
@@ -89,24 +89,37 @@ function getApi() {
     // fetch request gets a list of objects for all ticketmaster music events
     var requestUrl = `https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&locale=*&stateCode=${state}&segmentName=Music&size=200`;
 
-    fetch(requestUrl)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            // console.log(data);
-            for (var i = 0; i < data._embedded.events.length; i++) {
-                var eventInfo = data._embedded.events[i];
-                for(var q = 0; q < eventInfo._embedded.attactions.length; q++){
-                bands.push(eventInfo._embedded.attactions[q].name); //Add artist's name to bands array
-                }   
+   fetch(requestUrl).then(function(res) {
+    return res.json()
+   }).then(function(data) {
+    console.log(data._embedded.events)
+    let results = data._embedded.events
+    for(let i = 0; i < results.length; i++) {
+      // console.log(results[i].name)
+      if(results[i].name.includes(bandNameSearch)) {
+        console.log(results[i])
+      }
+    }
+   })
+}
+    // fetch(requestUrl)
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (data) {
+    //         console.log(data);
+            // for (var i = 0; i < data._embedded.events.length; i++) {
+            //     var eventInfo = data._embedded.events[i];
+            //     for(var q = 0; q < eventInfo._embedded.attactions.length; q++){
+            //     bands.push(eventInfo._embedded.attactions[q].name); //Add artist's name to bands array
+                // }   
                 // console.log(data._embedded.events[i]._embedded.venues[0].name); //Venue Name
                 // console.log(data._embedded.events[i]._embedded.venues[0].address.line1);    //Street Address
                 // console.log(data._embedded.events[i]._embedded.venues[0].city.name);        //City
                 // console.log(data._embedded.events[i]._embedded.venues[0].state.stateCode);  //State Abbrev
                 // console.log(data._embedded.events[i]._embedded.venues[0].postalCode);       //Zip Code
-            }
-            console.log(bands);
+            // }
+            // console.log(bands);
             // console.log(bandNameSearch);
             // for(var y=0; y<bands.length; y++){
             //     if(bandNameSearch == bands[y]){
@@ -117,8 +130,9 @@ function getApi() {
             //     console.log(data._embedded.events[y]._embedded.venues[0].postalCode);       //Zip Code
             //     }
             // }
-        });
-}
+
+        // });
+// }
 
 // getApi()
 bandButtonEl.addEventListener('click', getApi);
