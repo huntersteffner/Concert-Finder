@@ -58,7 +58,7 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${searchEnt
 
 
 
-
+let state
 
 
 
@@ -75,8 +75,10 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${searchEnt
 
 
 function getApi() {
+  state = document.getElementById('state').value
+  console.log(state)
     // fetch request gets a list of objects for all ticketmaster music events
-    var requestUrl = 'https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&locale=*&stateCode=MI&segmentName=Music&size=200';
+    var requestUrl = `https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&locale=*&stateCode=${state}&segmentName=Music&size=200`;
 
     fetch(requestUrl)
         .then(function (response) {
