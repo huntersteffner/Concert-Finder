@@ -3,6 +3,9 @@ var bandNameSearch = 'Chris Stapleton';
 var bands = [];
 let lat
 let long
+let listOfResults = ''
+const arrayOfResults = []
+let currentOption
 
 
 
@@ -30,6 +33,8 @@ const mapSearch = function(lat, long) {
 
   var map = L.map('map').setView([lat, long], 12);
   marker = L.marker([lat, long]).addTo(map);
+
+
   
   
   
@@ -107,14 +112,38 @@ function getApi() {
       // console.log(results[i].name)
       if(results[i].name.includes(bandNameSearch)) {
         console.log(results[i])
-        lat = results[i]._embedded.venues[0].location.latitude
-        long = results[i]._embedded.venues[0].location.longitude
+        
 
-        mapSearch(lat, long)
-        marker.bindPopup(`<b>${results[i].name}</b><br>Venue: ${results[i]._embedded.venues[0].name}<br>Date: ${results[i].dates.start.localDate}<br>Time: ${results[i].dates.start.localTime}<br>Tickets starting at $${results[i].priceRanges[0].min}<br><a href="${results[i].url}" target="_blank">See Web Page</a>`).openPopup();
+        listOfResults += `<li id="${i}" class="list-group-item">${results[i].dates.start.localDate} - ${results[i]._embedded.venues[0].name}</li>`
+
+      arrayOfResults.push(results[i])
+
+
+
+        
+        // mapSearch(lat, long)
+        // This logic controls the text that displays in the popup marker when searching for a concert.
+        // marker.bindPopup(`<b>${results[i].name}</b><br>Venue: ${results[i]._embedded.venues[0].name}<br>Date: ${results[i].dates.start.localDate}<br>Time: ${results[i].dates.start.localTime}<br>Tickets starting at $${results[i].priceRanges[0].min}<br><a href="${results[i].url}" target="_blank">See Web Page</a>`).openPopup();
 
       }
     }
+    console.log(arrayOfResults)
+    console.log(listOfResults)
+    $('#choices-list').append(listOfResults)
+
+    $('#choices-list').children().on('click', function(e) {
+      currentOption = $(this).each(function(e) {
+        return $(this).attr('id')
+      }).attr('id')
+      console.log(currentOption)
+
+      lat = arrayOfResults[currentOption]._embedded.venues[0].location.latitude
+      long = arrayOfResults[currentOption]._embedded.venues[0].location.longitude
+      console.log(lat, long)
+      mapSearch(lat, long)
+        // This logic controls the text that displays in the popup marker when searching for a concert.
+        marker.bindPopup(`<b>${arrayOfResults[currentOption].name}</b><br>Venue: ${arrayOfResults[currentOption]._embedded.venues[0].name}<br>Date: ${arrayOfResults[currentOption].dates.start.localDate}<br>Time: ${arrayOfResults[currentOption].dates.start.localTime}<br><a href="${arrayOfResults[currentOption].url}" target="_blank">See Web Page</a>`).openPopup();
+    })
    })
 }
     // fetch(requestUrl)
