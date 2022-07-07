@@ -6,6 +6,7 @@ let long
 let listOfResults = ''
 const arrayOfResults = []
 let currentOption
+let number = 0
 
 
 
@@ -109,13 +110,15 @@ function getApi() {
     console.log(data._embedded.events)
     let results = data._embedded.events
     for(let i = 0; i < results.length; i++) {
+      
       // console.log(results[i].name)
       if(results[i].name.includes(bandNameSearch)) {
         console.log(results[i])
         
 
-        listOfResults += `<li id="${i}" class="list-group-item">${results[i].dates.start.localDate} - ${results[i]._embedded.venues[0].name}</li>`
+        listOfResults += `<li id="${number}" class="list-group-item">${results[number].dates.start.localDate} - ${results[number]._embedded.venues[0].name}</li>`
 
+        number ++
       arrayOfResults.push(results[i])
 
 
