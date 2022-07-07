@@ -114,6 +114,7 @@ function getApi() {
       // console.log(results[i].name)
       if(results[i].name.includes(bandNameSearch)) {
         console.log(results[i])
+        $('#glass-container').remove()
         
 
         listOfResults += `<li id="${number}" class="list-group-item">${results[number].dates.start.localDate} - ${results[number]._embedded.venues[0].name}</li>`
@@ -146,6 +147,11 @@ function getApi() {
       mapSearch(lat, long)
         // This logic controls the text that displays in the popup marker when searching for a concert.
         marker.bindPopup(`<b>${arrayOfResults[currentOption].name}</b><br>Venue: ${arrayOfResults[currentOption]._embedded.venues[0].name}<br>Date: ${arrayOfResults[currentOption].dates.start.localDate}<br>Time: ${arrayOfResults[currentOption].dates.start.localTime}<br><a href="${arrayOfResults[currentOption].url}" target="_blank">See Web Page</a>`).openPopup();
+        $('#choices').remove()
+        $('#newSerach').append('<button id="refresh-button" class="btn-primary rounded">Click for New Search</button>')
+        $('#refresh-button').on('click', function() {
+          location.reload()
+        })
     })
    })
 }
