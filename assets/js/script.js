@@ -1,6 +1,8 @@
 var bandButtonEl = document.getElementById("band-button");
 var bandNameSearch = 'Chris Stapleton';
 var bands = [];
+let lat
+let long
 
 
 
@@ -22,15 +24,22 @@ var bands = [];
 // }
 
 // window.initMap = initMap;
+let marker
 
-var map = L.map('map').setView([33.74, -84.38], 12);
-var marker = L.marker([33.74, -84.38]).addTo(map);
-marker.bindPopup("<b>This marker can point to concert locations</b><br>It could also have other relavent information, such as date, indoor/outdoor, weather, etc.").openPopup();
+const mapSearch = function(lat, long) {
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
+  var map = L.map('map').setView([lat, long], 12);
+  marker = L.marker([lat, long]).addTo(map);
+  
+  
+  
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+  }).addTo(map);
+}
+// mapSearch(33.74, -84.38)
+
 
 
 // Application name	Concert Finder
@@ -98,6 +107,12 @@ function getApi() {
       // console.log(results[i].name)
       if(results[i].name.includes(bandNameSearch)) {
         console.log(results[i])
+        lat = results[i]._embedded.venues[0].location.latitude
+        long = results[i]._embedded.venues[0].location.longitude
+
+        mapSearch(lat, long)
+        marker.bindPopup(`<b>${results[i].name}</b><br>Venue: ${results[i]._embedded.venues[0].name}<br>Date: ${results[i].dates.start.localDate}<br>Time: ${results[i].dates.start.localTime}<br>Tickets starting at $${results[i].priceRanges[0].min}<br><a href="${results[i].url}" target="_blank">See Web Page</a>`).openPopup();
+
       }
     }
    })
