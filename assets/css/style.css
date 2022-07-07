@@ -14,7 +14,9 @@ article{
   color: aqua;
 }
 .jumbotron {
-    background-image: url('https://media4.giphy.com/media/wKNShEiXo1V5SFwyMa/200w.webp?cid=ecf05e47q4ybkrpxt225vcq01r5urji0p209ge58afuxjzqe&rid=200w.webp&ct=g');
+    background-image: url('https://media1.giphy.com/media/3o7TKpqTDXwPCuiqlO/200w.webp?cid=ecf05e47popyowi70waea739oz74z847i3yphwu1z4o8h138&rid=200w.webp&ct=g');
+    height:100%;
+    width:100%;
     background-size: cover;
     background-position: center;
     position:relative;
@@ -32,7 +34,7 @@ article{
     }
     
     .mask-custom {
-        background: rgba(24, 24, 16, .2);
+        background: rgba(255, 255, 255, 0.2);
         border-radius: 2em;
         backdrop-filter: blur(15px);
         border: 2px solid rgba(255, 255, 255, 0.05);
