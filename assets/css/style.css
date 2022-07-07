@@ -11,7 +11,7 @@ article{
 }
 
 .jumbotron {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtZA1wzBKWZm-J4lNTu15Djlu7WrX8RNMf2A&usqp=CAU');
+    background-image: url('https://media4.giphy.com/media/wKNShEiXo1V5SFwyMa/200w.webp?cid=ecf05e47q4ybkrpxt225vcq01r5urji0p209ge58afuxjzqe&rid=200w.webp&ct=g');
     height:100%;
     width:100%;
     background-size: cover;
@@ -23,18 +23,31 @@ article{
     position: relative;
     top:100px;
     }
-    .container {
-      position: relative;
-      width: 100%;
-      height:30%;
+
+    html,
+    body,
+    .intro {
+        height: 100%;
     }
-  #myCarousel{
-height: 50%;
-width: 50%;
-position: absolute;
-left: 0;
-top: 0;
-  }
-#mapBox{
-  width: 100%;
-}
+    
+    .mask-custom {
+        background: rgba(24, 24, 16, .2);
+        border-radius: 2em;
+        backdrop-filter: blur(15px);
+        border: 2px solid rgba(255, 255, 255, 0.05);
+        background-clip: padding-box;
+        box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+    }
+
+    
+
+    #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+      }
+      .form-outline {
+          position: relative;
+          
+      }

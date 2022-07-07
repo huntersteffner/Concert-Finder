@@ -196,7 +196,6 @@ bandButtonEl.addEventListener('click', getApi);
 
 
 
-
 // $.ajax({
 //     type:"GET",
 //     url:"https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr",

@@ -74,14 +74,14 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Dropdown
+                <!-- Dropdown -->
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Action</a>
                 <a class="dropdown-item" href="#">Another action</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+              </div> -->
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Live Streams</a>
@@ -113,14 +113,40 @@
           It uses utility classes for typography and spacing to space content
           out within the larger container.
         </p>
+      
+  
+      
+          <!-- GLASS CONTAINER -->
+            <div class="card mask-custom p-4">
+              <div class="card-body">
+                <p class="h1 font-weight-bold mb-4 text-white">Discover Live Concerts</p>
+                <div class="row justify-content-center">
+                  <div class="col-md-6 mb-3 mb-md-0">
+                    <div id="basic" class="form-outline form-white">
+                      <input type="text" id="form1" class="form-control form-control-lg" />
+                      <label class="form-label" for="form1">Artists</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3 mb-md-0">
+                    <div id="location" class="form-outline form-white">
+                      <input type="text" id="form2" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2">Location</label>
+                    </div>
+                  </div>`
+                  <div class="col-md-2">
+
+                    <input id="band-button" class="btn btn-info btn-block btn-lg" type="submit" value="Search" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+      
+      
+   
         <p class="lead">
-          <a
-            id="band-button"
-            class="btn btn-primary btn-sm"
-            href="#"
-            role="button"
-            >Find Concert</a
-          >
+
+         
         </p>
       </header>
         <div id="map">
@@ -158,6 +184,7 @@
         <span class="sr-only">Next</span>
       </a>
       </div>
+      </section>
 
     <!-- SECTION FOR GENRE -->
     <div id="choices" class="card">
@@ -169,7 +196,7 @@
    
     
     <!-- SECTION FOR UPCOMING FESTIVALS -->
-
+<div id="map"></div>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDbIZRWppqAlvQa0CTvZM3W_3lYTJGhVA&callback=initMap&v=weekly"
       defer
