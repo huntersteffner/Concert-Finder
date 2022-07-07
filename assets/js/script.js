@@ -9,7 +9,7 @@ let currentOption
 let number = 0
 
 
-
+addEventListener.document.getElementById()
 
 // Initialize and add the map
 // const initMap = function () {
