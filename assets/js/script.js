@@ -12,9 +12,10 @@ console.log(arrayOfResults)
 
 
 let arrayForLocalStorage = []
-const retrievedFromLS = JSON.parse(window.localStorage.getItem('search'))
+let retrievedFromLS = JSON.parse(window.localStorage.getItem('search'))
 console.log(retrievedFromLS)
 if(retrievedFromLS === null) {
+  retrievedFromLS = []
   console.log("its empty")
   $('#recent-searches').append('<h5>No Recent Searches Yet</h5>')
 } else {
@@ -26,13 +27,30 @@ if(retrievedFromLS === null) {
   for(let j = 0; j < arrayForLocalStorage.length; j ++) {
     console.log(arrayForLocalStorage[j])
     // $('#recent-searches').append(`${arrayForLocalStorage[i][0].name}`)
-    if(arrayForLocalStorage[j] != null) {
+    if(arrayForLocalStorage[j].name != null ) {
       console.log('Happening')
-      $('#recent-searches-list').append(`<li class="list-group-item">${arrayForLocalStorage[j].name}</li>`)
+      $('#recent-searches-list').append(`<li id="${j}" class="list-group-item">${arrayForLocalStorage[j].name}</li>`)
     }
   }
 
 }
+$('#recent-searches-list').children().on('click', function() {
+  const curArray = $(this).attr('id')
+  console.log(arrayForLocalStorage[curArray])
+
+  lat = arrayForLocalStorage[curArray]._embedded.venues[0].location.latitude
+      long = arrayForLocalStorage[curArray]._embedded.venues[0].location.longitude
+
+      mapSearch(lat, long)
+      marker.bindPopup(`<b>${arrayForLocalStorage[curArray].name}</b><br>Venue: ${arrayForLocalStorage[curArray]._embedded.venues[0].name}<br>Date: ${arrayForLocalStorage[curArray].dates.start.localDate}<br>Time: ${arrayForLocalStorage[curArray].dates.start.localTime}<br><a href="${arrayForLocalStorage[curArray].url}" target="_blank">See Web Page</a>`).openPopup();
+      $('#glass-container').remove()
+      $('#recent-searches').remove()
+      $('#newSerach').append('<button id="refresh-button" class="btn-primary rounded">Click for New Search</button>')
+      $('#refresh-button').on('click', function() {
+        location.reload()
+      })
+
+})
 
 
 
