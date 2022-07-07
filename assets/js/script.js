@@ -1,7 +1,16 @@
 var bandButtonEl = document.getElementById("band-button");
-var bandNameSearch = 'Imagine Dragons';
+var bandNameSearch = 'Chris Stapleton';
 var bands = [];
+<<<<<<< HEAD
 var eventInfo = [];
+=======
+let lat
+let long
+let listOfResults = ''
+const arrayOfResults = []
+let currentOption
+let number = 0
+>>>>>>> c3ae21eb94510bb9ee15806323e92be8b4a67e6b
 
 
 
@@ -23,15 +32,24 @@ var eventInfo = [];
 // }
 
 // window.initMap = initMap;
+let marker
 
-var map = L.map('map').setView([33.74, -84.38], 12);
-var marker = L.marker([33.74, -84.38]).addTo(map);
-marker.bindPopup("<b>This marker can point to concert locations</b><br>It could also have other relavent information, such as date, indoor/outdoor, weather, etc.").openPopup();
+const mapSearch = function(lat, long) {
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
+  var map = L.map('map').setView([lat, long], 12);
+  marker = L.marker([lat, long]).addTo(map);
+
+
+  
+  
+  
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+  }).addTo(map);
+}
+// mapSearch(33.74, -84.38)
+
 
 
 // Application name	Concert Finder
@@ -90,29 +108,69 @@ function getApi() {
     // fetch request gets a list of objects for all ticketmaster music events
     var requestUrl = `https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&locale=*&stateCode=${state}&segmentName=Music&size=200`;
 
-    fetch(requestUrl)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            // console.log(data);
-            for (var i = 0; i < data._embedded.events.length; i++) {
-                eventInfo.push(data._embedded.events[i]);
-                // console.log(eventInfo._embedded.attractions.length);
-                // console.log(eventInfo._embedded.attactions);
-                  
+   fetch(requestUrl).then(function(res) {
+    return res.json()
+   }).then(function(data) {
+    console.log(data._embedded.events)
+    let results = data._embedded.events
+    for(let i = 0; i < results.length; i++) {
+      
+      // console.log(results[i].name)
+      if(results[i].name.includes(bandNameSearch)) {
+        console.log(results[i])
+        
+
+        listOfResults += `<li id="${number}" class="list-group-item">${results[number].dates.start.localDate} - ${results[number]._embedded.venues[0].name}</li>`
+
+        number ++
+      arrayOfResults.push(results[i])
+
+
+
+        
+        // mapSearch(lat, long)
+        // This logic controls the text that displays in the popup marker when searching for a concert.
+        // marker.bindPopup(`<b>${results[i].name}</b><br>Venue: ${results[i]._embedded.venues[0].name}<br>Date: ${results[i].dates.start.localDate}<br>Time: ${results[i].dates.start.localTime}<br>Tickets starting at $${results[i].priceRanges[0].min}<br><a href="${results[i].url}" target="_blank">See Web Page</a>`).openPopup();
+
+      }
+    }
+    console.log(arrayOfResults)
+    console.log(listOfResults)
+    $('#choices-list').append(listOfResults)
+
+    $('#choices-list').children().on('click', function(e) {
+      currentOption = $(this).each(function(e) {
+        return $(this).attr('id')
+      }).attr('id')
+      console.log(currentOption)
+
+      lat = arrayOfResults[currentOption]._embedded.venues[0].location.latitude
+      long = arrayOfResults[currentOption]._embedded.venues[0].location.longitude
+      console.log(lat, long)
+      mapSearch(lat, long)
+        // This logic controls the text that displays in the popup marker when searching for a concert.
+        marker.bindPopup(`<b>${arrayOfResults[currentOption].name}</b><br>Venue: ${arrayOfResults[currentOption]._embedded.venues[0].name}<br>Date: ${arrayOfResults[currentOption].dates.start.localDate}<br>Time: ${arrayOfResults[currentOption].dates.start.localTime}<br><a href="${arrayOfResults[currentOption].url}" target="_blank">See Web Page</a>`).openPopup();
+    })
+   })
+}
+    // fetch(requestUrl)
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (data) {
+    //         console.log(data);
+            // for (var i = 0; i < data._embedded.events.length; i++) {
+            //     var eventInfo = data._embedded.events[i];
+            //     for(var q = 0; q < eventInfo._embedded.attactions.length; q++){
+            //     bands.push(eventInfo._embedded.attactions[q].name); //Add artist's name to bands array
+                // }   
                 // console.log(data._embedded.events[i]._embedded.venues[0].name); //Venue Name
                 // console.log(data._embedded.events[i]._embedded.venues[0].address.line1);    //Street Address
                 // console.log(data._embedded.events[i]._embedded.venues[0].city.name);        //City
                 // console.log(data._embedded.events[i]._embedded.venues[0].state.stateCode);  //State Abbrev
                 // console.log(data._embedded.events[i]._embedded.venues[0].postalCode);       //Zip Code
-            }
-            console.log(eventInfo);
-            for(var q = 0; q < eventInfo.length; q++){
-                console.log(q);
-                  bands.push(eventInfo._embedded.attractions[q].name)  //Add artist's name to bands array
-                } 
-            console.log(bands);
+            // }
+            // console.log(bands);
             // console.log(bandNameSearch);
             // for(var y=0; y<bands.length; y++){
             //     if(bandNameSearch == bands[y]){
@@ -123,12 +181,12 @@ function getApi() {
             //     console.log(data._embedded.events[y]._embedded.venues[0].postalCode);       //Zip Code
             //     }
             // }
-        });
-}
+
+        // });
+// }
 
 // getApi()
 bandButtonEl.addEventListener('click', getApi);
-
 
 
 
