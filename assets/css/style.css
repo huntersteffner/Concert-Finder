@@ -9,7 +9,10 @@
 article{
   position: relative;
 }
-
+.gcse-search{
+  background-color: aquamarine;
+  color: aqua;
+}
 .jumbotron {
     background-image: url('https://media1.giphy.com/media/3o7TKpqTDXwPCuiqlO/200w.webp?cid=ecf05e47popyowi70waea739oz74z847i3yphwu1z4o8h138&rid=200w.webp&ct=g');
     height:100%;
@@ -18,7 +21,7 @@ article{
     background-position: center;
     position:relative;
     }
-    
+
     .jumbotron .container {
     position: relative;
     top:100px;
@@ -38,9 +41,9 @@ article{
         background-clip: padding-box;
         box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
     }
+    #myInput:focus {outline: 3px solid #ddd;}
 
     
-
     #map {
         height: 400px;
         /* The height is 400 pixels */
