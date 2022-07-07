@@ -13,7 +13,7 @@ let number = 0
 >>>>>>> c3ae21eb94510bb9ee15806323e92be8b4a67e6b
 
 
-
+addEventListener.document.getElementById()
 
 // Initialize and add the map
 // const initMap = function () {
