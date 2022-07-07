@@ -36,6 +36,7 @@ if(retrievedFromLS === null) {
 
 
 
+
 // Initialize and add the map
 // const initMap = function () {
 //     // The location of Atlanta
@@ -96,20 +97,20 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${searchEnt
 })
 
 
-
-
-
-
-
-
-
-
-
+var select = document.getElementById("myInput")
+var options = [ 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY' ];
+for(var i = 0; i < options.length; i++) {
+  var opt = options[i];
+  var el = document.createElement("option");
+  el.textContent = opt;
+  el.value = opt;
+  select.appendChild(el);
+}
 
 
 // This is to search by state
 
-let state
+let state 
 // The logic below will dynamically add a list of all 50 states to the dropdown anywhere in the HTML as long as it has an ID of #state.
 stateDropdownHTML = ''
 const states = [ 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY' ];
