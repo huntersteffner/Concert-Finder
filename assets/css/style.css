@@ -1,11 +1,14 @@
 #map {
-  height: 400px;
+  position: relative;
+  width:100%;
+  height: 150px;
 /* The height is 400 pixels */
-  width: 100%;
 /* The width is the width of the web page */
 } 
 * {cursor: url(https://ani.cursors-4u.net/others/oth-9/oth897.cur), auto !important;}
-
+article{
+  position: relative;
+}
 
 .jumbotron {
     background-image: url('https://media4.giphy.com/media/wKNShEiXo1V5SFwyMa/200w.webp?cid=ecf05e47q4ybkrpxt225vcq01r5urji0p209ge58afuxjzqe&rid=200w.webp&ct=g');
@@ -13,6 +16,7 @@
     width:100%;
     background-size: cover;
     background-position: center;
+    position:relative;
     }
     
     .jumbotron .container {
