@@ -8,8 +8,23 @@ const arrayOfResults = []
 let currentOption
 let number = 0
 
+const arrayForLocalStorage = []
+const retrievedFromLS = JSON.parse(window.localStorage.getItem('search'))
+console.log(retrievedFromLS)
+if(retrievedFromLS === null) {
+  console.log("its empty")
+  $('#recent-searches').append('<h3>Recent Searches will go here</h3>')
+} else {
+  console.log('Not empty')
+  arrayForLocalStorage.push(retrievedFromLS)
+  for(let i = 0; i < arrayForLocalStorage.length; i ++) {
+    console.log(arrayForLocalStorage[i][0].name)
+    $('#recent-searches').append(`${arrayForLocalStorage[i][0].name}`)
+  }
 
-addEventListener.document.getElementById()
+}
+
+
 
 // Initialize and add the map
 // const initMap = function () {
@@ -116,8 +131,11 @@ function getApi() {
         console.log(results[i])
         $('#glass-container').remove()
         
+       
 
         listOfResults += `<li id="${number}" class="list-group-item">${results[number].dates.start.localDate} - ${results[number]._embedded.venues[0].name}</li>`
+
+      
 
         number ++
       arrayOfResults.push(results[i])
@@ -152,6 +170,11 @@ function getApi() {
         $('#refresh-button').on('click', function() {
           location.reload()
         })
+
+        arrayForLocalStorage.push(arrayOfResults[currentOption])
+        console.log(arrayForLocalStorage)
+
+        localStorage.setItem(`search`, JSON.stringify(arrayForLocalStorage))
     })
    })
 }
