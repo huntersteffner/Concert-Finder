@@ -11,7 +11,7 @@ article{
 }
 
 .jumbotron {
-    background-image: url('https://media4.giphy.com/media/wKNShEiXo1V5SFwyMa/200w.webp?cid=ecf05e47q4ybkrpxt225vcq01r5urji0p209ge58afuxjzqe&rid=200w.webp&ct=g');
+    background-image: url('https://media1.giphy.com/media/3oEhmRJWA8RDzjmwWk/giphy.gif?cid=ecf05e47ypfamh2d6vzeuh03molqtq4hd0gtbtg5af4xb16c&rid=giphy.gif&ct=g');
     height:100%;
     width:100%;
     background-size: cover;
@@ -31,7 +31,7 @@ article{
     }
     
     .mask-custom {
-        background: rgba(24, 24, 16, .2);
+        background: rgba(224, 224, 18, 0.2);
         border-radius: 2em;
         backdrop-filter: blur(15px);
         border: 2px solid rgba(255, 255, 255, 0.05);
