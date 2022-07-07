@@ -1,6 +1,7 @@
 var bandButtonEl = document.getElementById("band-button");
 var bandNameSearch = 'Imagine Dragons';
 var bands = [];
+var eventInfo = [];
 
 
 
@@ -38,22 +39,22 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Shared secret	596cec3680a048608375b6758853cd94
 // Registered to	huntersteffner
 
-let searchEntry = 'Imagine Dragons'
-searchEntry = searchEntry.replaceAll(' ', '-')
-console.log(searchEntry)
+// let searchEntry = 'Imagine Dragons'
+// searchEntry = searchEntry.replaceAll(' ', '-')
+// console.log(searchEntry)
 
-let fetchedObject
-let testImg
+// let fetchedObject
+// let testImg
 
 
 
-fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${searchEntry}&api_key=c34e1d9396ec00f422f5ee6f423a0503&format=json`).then(function(res) {
-  return res.json()
-}).then(function(data) {
-  console.log(data)
-  testImg = `<img src="${data.results.artistmatches.artist[0]}" alt="">`
-  console.log(testImg)
-})
+// fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${searchEntry}&api_key=c34e1d9396ec00f422f5ee6f423a0503&format=json`).then(function(res) {
+//   return res.json()
+// }).then(function(data) {
+//   console.log(data)
+//   testImg = `<img src="${data.results.artistmatches.artist[0]}" alt="">`
+//   console.log(testImg)
+// })
 
 
 
@@ -69,14 +70,14 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${searchEnt
 
 // This is to search by state
 
-let state
-// The logic below will dynamically add a list of all 50 states to the dropdown anywhere in the HTML as long as it has an ID of #state.
-stateDropdownHTML = ''
-const states = [ 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY' ];
-for(let i = 0; i < states.length; i ++) {
-  stateDropdownHTML += `<option value="${states[i]}">${states[i]}</option>`
-}
-$('#state').append(stateDropdownHTML)
+// let state
+// // The logic below will dynamically add a list of all 50 states to the dropdown anywhere in the HTML as long as it has an ID of #state.
+// stateDropdownHTML = ''
+// const states = [ 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY' ];
+// for(let i = 0; i < states.length; i ++) {
+//   stateDropdownHTML += `<option value="${states[i]}">${states[i]}</option>`
+// }
+// $('#state').append(stateDropdownHTML)
 
 
 
@@ -96,16 +97,21 @@ function getApi() {
         .then(function (data) {
             // console.log(data);
             for (var i = 0; i < data._embedded.events.length; i++) {
-                var eventInfo = data._embedded.events[i];
-                for(var q = 0; q < eventInfo._embedded.attactions.length; q++){
-                bands.push(eventInfo._embedded.attactions[q].name); //Add artist's name to bands array
-                }   
+                eventInfo.push(data._embedded.events[i]);
+                // console.log(eventInfo._embedded.attractions.length);
+                // console.log(eventInfo._embedded.attactions);
+                  
                 // console.log(data._embedded.events[i]._embedded.venues[0].name); //Venue Name
                 // console.log(data._embedded.events[i]._embedded.venues[0].address.line1);    //Street Address
                 // console.log(data._embedded.events[i]._embedded.venues[0].city.name);        //City
                 // console.log(data._embedded.events[i]._embedded.venues[0].state.stateCode);  //State Abbrev
                 // console.log(data._embedded.events[i]._embedded.venues[0].postalCode);       //Zip Code
             }
+            console.log(eventInfo);
+            for(var q = 0; q < eventInfo.length; q++){
+                console.log(q);
+                  bands.push(eventInfo._embedded.attractions[q].name)  //Add artist's name to bands array
+                } 
             console.log(bands);
             // console.log(bandNameSearch);
             // for(var y=0; y<bands.length; y++){
