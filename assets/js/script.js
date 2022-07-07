@@ -11,28 +11,28 @@ let number = 0
 console.log(arrayOfResults)
 
 
-// let arrayForLocalStorage = []
-// const retrievedFromLS = JSON.parse(window.localStorage.getItem('search'))
-// console.log(retrievedFromLS)
-// if(retrievedFromLS === null) {
-//   console.log("its empty")
-//   $('#recent-searches').append('<h5>No Recent Searches Yet</h5>')
-// } else {
-//   console.log('Not empty')
-//   arrayForLocalStorage.push(retrievedFromLS)
-//   for(let i = 0; i< retrievedFromLS.length; i++) {
-//     arrayForLocalStorage.push(retrievedFromLS[i])
-//   }
-//   for(let j = 0; j < arrayForLocalStorage.length; j ++) {
-//     console.log(arrayForLocalStorage[j])
-//     // $('#recent-searches').append(`${arrayForLocalStorage[i][0].name}`)
-//     if(arrayForLocalStorage[j] != null) {
-//       console.log('Happening')
-//       $('#recent-searches-list').append(`<li class="list-group-item">${arrayForLocalStorage[j].name}</li>`)
-//     }
-//   }
+let arrayForLocalStorage = []
+const retrievedFromLS = JSON.parse(window.localStorage.getItem('search'))
+console.log(retrievedFromLS)
+if(retrievedFromLS === null) {
+  console.log("its empty")
+  $('#recent-searches').append('<h5>No Recent Searches Yet</h5>')
+} else {
+  console.log('Not empty')
+  arrayForLocalStorage.push(retrievedFromLS)
+  for(let i = 0; i< retrievedFromLS.length; i++) {
+    arrayForLocalStorage.push(retrievedFromLS[i])
+  }
+  for(let j = 0; j < arrayForLocalStorage.length; j ++) {
+    console.log(arrayForLocalStorage[j])
+    // $('#recent-searches').append(`${arrayForLocalStorage[i][0].name}`)
+    if(arrayForLocalStorage[j] != null) {
+      console.log('Happening')
+      $('#recent-searches-list').append(`<li class="list-group-item">${arrayForLocalStorage[j].name}</li>`)
+    }
+  }
 
-// }
+}
 
 
 
