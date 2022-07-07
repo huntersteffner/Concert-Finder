@@ -10,11 +10,11 @@
 
 ## Abstract:
 
-To be Added
+Website that Allows user to find concerts based on State and Band Name
 
 ## Project Brief:
 
-To be Added
+This site includes a navbar in the top right (currently unused).  A google search next to it the pops out a window for general information related to music.  There is a Jumbottron that contains 
 
 ## Technologies used:
 

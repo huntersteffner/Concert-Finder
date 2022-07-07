@@ -1,19 +1,15 @@
 var bandButtonEl = document.getElementById("band-button");
-var bandNameSearch = 'Chris Stapleton';
+let bandNameSearch = document.getElementById("form2").value;
 var bands = [];
-<<<<<<< HEAD
-var eventInfo = [];
-=======
 let lat
 let long
 let listOfResults = ''
 const arrayOfResults = []
 let currentOption
 let number = 0
->>>>>>> c3ae21eb94510bb9ee15806323e92be8b4a67e6b
 
-
-addEventListener.document.getElementById()
+console.log(bandNameSearch);
+// addEventListener.document.getElementById()
 
 // Initialize and add the map
 // const initMap = function () {
@@ -88,14 +84,14 @@ const mapSearch = function(lat, long) {
 
 // This is to search by state
 
-// let state
-// // The logic below will dynamically add a list of all 50 states to the dropdown anywhere in the HTML as long as it has an ID of #state.
-// stateDropdownHTML = ''
-// const states = [ 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY' ];
-// for(let i = 0; i < states.length; i ++) {
-//   stateDropdownHTML += `<option value="${states[i]}">${states[i]}</option>`
-// }
-// $('#state').append(stateDropdownHTML)
+let state
+// The logic below will dynamically add a list of all 50 states to the dropdown anywhere in the HTML as long as it has an ID of #state.
+stateDropdownHTML = ''
+const states = [ 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY' ];
+for(let i = 0; i < states.length; i ++) {
+  stateDropdownHTML += `<option value="${states[i]}">${states[i]}</option>`
+}
+$('#state').append(stateDropdownHTML)
 
 
 
@@ -103,8 +99,10 @@ const mapSearch = function(lat, long) {
 
 function getApi() {
   // The line of code below pulls what the current selected state is.
-  state = document.getElementById('state').value
-  console.log(state)
+  state = document.getElementById('state').value;
+  let bandNameSearch = document.getElementById('form1').value;
+  console.log(state);
+  console.log(bandNameSearch);
     // fetch request gets a list of objects for all ticketmaster music events
     var requestUrl = `https://app.ticketmaster.com/discovery/v2/events?apikey=mgQugAMUEqgKEogCWbyjp56vnUXbRbsr&locale=*&stateCode=${state}&segmentName=Music&size=200`;
 
@@ -117,17 +115,14 @@ function getApi() {
       
       // console.log(results[i].name)
       if(results[i].name.includes(bandNameSearch)) {
-        console.log(results[i])
+        console.log(results[i]);
         
 
         listOfResults += `<li id="${number}" class="list-group-item">${results[number].dates.start.localDate} - ${results[number]._embedded.venues[0].name}</li>`
 
         number ++
       arrayOfResults.push(results[i])
-
-
-
-        
+      
         // mapSearch(lat, long)
         // This logic controls the text that displays in the popup marker when searching for a concert.
         // marker.bindPopup(`<b>${results[i].name}</b><br>Venue: ${results[i]._embedded.venues[0].name}<br>Date: ${results[i].dates.start.localDate}<br>Time: ${results[i].dates.start.localTime}<br>Tickets starting at $${results[i].priceRanges[0].min}<br><a href="${results[i].url}" target="_blank">See Web Page</a>`).openPopup();
