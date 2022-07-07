@@ -12,8 +12,6 @@ article{
 
 .jumbotron {
     background-image: url('https://media4.giphy.com/media/wKNShEiXo1V5SFwyMa/200w.webp?cid=ecf05e47q4ybkrpxt225vcq01r5urji0p209ge58afuxjzqe&rid=200w.webp&ct=g');
-    height:100%;
-    width:100%;
     background-size: cover;
     background-position: center;
     position:relative;
