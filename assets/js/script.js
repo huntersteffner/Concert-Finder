@@ -8,6 +8,32 @@ const arrayOfResults = []
 let currentOption
 let number = 0
 
+console.log(arrayOfResults)
+
+
+let arrayForLocalStorage = []
+const retrievedFromLS = JSON.parse(window.localStorage.getItem('search'))
+console.log(retrievedFromLS)
+if(retrievedFromLS === null) {
+  console.log("its empty")
+  $('#recent-searches').append('<h5>No Recent Searches Yet</h5>')
+} else {
+  console.log('Not empty')
+  arrayForLocalStorage.push(retrievedFromLS)
+  for(let i = 0; i< retrievedFromLS.length; i++) {
+    arrayForLocalStorage.push(retrievedFromLS[i])
+  }
+  for(let j = 0; j < arrayForLocalStorage.length; j ++) {
+    console.log(arrayForLocalStorage[j])
+    // $('#recent-searches').append(`${arrayForLocalStorage[i][0].name}`)
+    if(arrayForLocalStorage[j] != null) {
+      console.log('Happening')
+      $('#recent-searches-list').append(`<li class="list-group-item">${arrayForLocalStorage[j].name}</li>`)
+    }
+  }
+
+}
+
 
 
 
@@ -114,12 +140,17 @@ function getApi() {
       // console.log(results[i].name)
       if(results[i].name.includes(bandNameSearch)) {
         console.log(results[i])
+        $('#glass-container').remove()
         
+       
 
         listOfResults += `<li id="${number}" class="list-group-item">${results[number].dates.start.localDate} - ${results[number]._embedded.venues[0].name}</li>`
 
+      
+
         number ++
       arrayOfResults.push(results[i])
+      console.log(arrayOfResults)
 
 
 
@@ -146,6 +177,18 @@ function getApi() {
       mapSearch(lat, long)
         // This logic controls the text that displays in the popup marker when searching for a concert.
         marker.bindPopup(`<b>${arrayOfResults[currentOption].name}</b><br>Venue: ${arrayOfResults[currentOption]._embedded.venues[0].name}<br>Date: ${arrayOfResults[currentOption].dates.start.localDate}<br>Time: ${arrayOfResults[currentOption].dates.start.localTime}<br><a href="${arrayOfResults[currentOption].url}" target="_blank">See Web Page</a>`).openPopup();
+        $('#choices').remove()
+        $('#newSerach').append('<button id="refresh-button" class="btn-primary rounded">Click for New Search</button>')
+        $('#refresh-button').on('click', function() {
+          location.reload()
+        })
+
+        console.log(arrayForLocalStorage)
+        arrayForLocalStorage.push(arrayOfResults[currentOption])
+        // arrayForLocalStorage = retrievedFromLS
+        console.log(arrayForLocalStorage)
+
+        localStorage.setItem(`search`, JSON.stringify(arrayForLocalStorage))
     })
    })
 }
