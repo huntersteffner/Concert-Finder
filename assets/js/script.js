@@ -1,5 +1,5 @@
 var bandButtonEl = document.getElementById("band-button");
-let bandNameSearch = document.getElementById("form2").value;
+let bandNameSearch = document.getElementById("form1").value;
 var bands = [];
 let lat
 let long
@@ -11,28 +11,28 @@ let number = 0
 console.log(arrayOfResults)
 
 
-let arrayForLocalStorage = []
-const retrievedFromLS = JSON.parse(window.localStorage.getItem('search'))
-console.log(retrievedFromLS)
-if(retrievedFromLS === null) {
-  console.log("its empty")
-  $('#recent-searches').append('<h5>No Recent Searches Yet</h5>')
-} else {
-  console.log('Not empty')
-  arrayForLocalStorage.push(retrievedFromLS)
-  for(let i = 0; i< retrievedFromLS.length; i++) {
-    arrayForLocalStorage.push(retrievedFromLS[i])
-  }
-  for(let j = 0; j < arrayForLocalStorage.length; j ++) {
-    console.log(arrayForLocalStorage[j])
-    // $('#recent-searches').append(`${arrayForLocalStorage[i][0].name}`)
-    if(arrayForLocalStorage[j] != null) {
-      console.log('Happening')
-      $('#recent-searches-list').append(`<li class="list-group-item">${arrayForLocalStorage[j].name}</li>`)
-    }
-  }
+// let arrayForLocalStorage = []
+// const retrievedFromLS = JSON.parse(window.localStorage.getItem('search'))
+// console.log(retrievedFromLS)
+// if(retrievedFromLS === null) {
+//   console.log("its empty")
+//   $('#recent-searches').append('<h5>No Recent Searches Yet</h5>')
+// } else {
+//   console.log('Not empty')
+//   arrayForLocalStorage.push(retrievedFromLS)
+//   for(let i = 0; i< retrievedFromLS.length; i++) {
+//     arrayForLocalStorage.push(retrievedFromLS[i])
+//   }
+//   for(let j = 0; j < arrayForLocalStorage.length; j ++) {
+//     console.log(arrayForLocalStorage[j])
+//     // $('#recent-searches').append(`${arrayForLocalStorage[i][0].name}`)
+//     if(arrayForLocalStorage[j] != null) {
+//       console.log('Happening')
+//       $('#recent-searches-list').append(`<li class="list-group-item">${arrayForLocalStorage[j].name}</li>`)
+//     }
+//   }
 
-}
+// }
 
 
 
@@ -110,14 +110,14 @@ for(var i = 0; i < options.length; i++) {
 
 // This is to search by state
 
-let state 
-// The logic below will dynamically add a list of all 50 states to the dropdown anywhere in the HTML as long as it has an ID of #state.
-stateDropdownHTML = ''
-const states = [ 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY' ];
-for(let i = 0; i < states.length; i ++) {
-  stateDropdownHTML += `<option value="${states[i]}">${states[i]}</option>`
-}
-$('#state').append(stateDropdownHTML)
+// let state 
+// // The logic below will dynamically add a list of all 50 states to the dropdown anywhere in the HTML as long as it has an ID of #state.
+// stateDropdownHTML = ''
+// const states = [ 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY' ];
+// for(let i = 0; i < states.length; i ++) {
+//   stateDropdownHTML += `<option value="${states[i]}">${states[i]}</option>`
+// }
+// $('#state').append(stateDropdownHTML)
 
 
 
@@ -125,7 +125,7 @@ $('#state').append(stateDropdownHTML)
 
 function getApi() {
   // The line of code below pulls what the current selected state is.
-  state = document.getElementById('state').value;
+  state = document.getElementById('myInput').value;
   let bandNameSearch = document.getElementById('form1').value;
   console.log(state);
   console.log(bandNameSearch);
