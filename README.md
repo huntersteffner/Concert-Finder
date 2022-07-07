@@ -69,3 +69,10 @@ To be Added
     * Assigned band-button to var bandButtonEl in JS
     * Fetch'd Ticketmaster events and found event name in object respons
     * Displayed 1 event name to console as test 
+
+**0.03 - Main page Styling and Javascript Object Path Pulling**
+    * Added Jumbotron
+    * Added Navbar
+    * Added Search Button to trigger function
+    * Added General Google Search
+    * Updated README
