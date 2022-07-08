@@ -41,7 +41,7 @@ $('#recent-searches-list').children().on('click', function() {
       marker.bindPopup(`<b>${arrayForLocalStorage[curArray].name}</b><br>Venue: ${arrayForLocalStorage[curArray]._embedded.venues[0].name}<br>Date: ${arrayForLocalStorage[curArray].dates.start.localDate}<br>Time: ${arrayForLocalStorage[curArray].dates.start.localTime}<br><a href="${arrayForLocalStorage[curArray].url}" target="_blank">See Web Page</a>`).openPopup();
       $('#glass-container').remove()
       $('#recent-searches').remove()
-      $('#newSerach').append('<button id="refresh-button" class="btn-primary rounded">Click for New Search</button>')
+      $('#newSearch').append('<button id="refresh-button" class="btn-primary rounded">Click for New Search</button>')
       // It adds a refresh button that reloads the page when you click on it
       $('#refresh-button').on('click', function() {
         location.reload()
