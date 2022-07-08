@@ -30,13 +30,16 @@ This site includes a navbar in the top right (currently unused).  A google searc
     * Ticketmaster
 * Various Hardware including multiple different screen sizes and mobile devices
 
-## Description:
+## Project Links:
 
-<!-- https://mlyjak1.github.io/Challenge_1/ -->
+https://github.com/MLyjak1/G-10_Musical_Chairs
+
+https://mlyjak1.github.io/G-10_Musical_Chairs/#gsc.tab=0
 
 
+![](Presentation/G-10%20Screenshot%20Map.png)
 
-<!-- ![](assets/pictures/Horiseon%20Screenshot%20Mobile.png) -->
+![](Presentation/G-10%20Screenshot%20Main.png)
 
 
 ## Instructions for Future Developers:
