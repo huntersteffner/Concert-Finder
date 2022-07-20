@@ -1,6 +1,10 @@
-*{
+/* *{
   color: black;
   opacity: 2;
+} */
+
+body {
+  background-color: #666;
 }
 
 #map {
@@ -9,11 +13,7 @@
   height: 350px;
 /* The height is 400 pixels */
 /* The width is the width of the web page */
-} 
-/* * {cursor: url(https://ani.cursors-4u.net/others/oth-9/oth897.cur), auto !important;}
-article{
-  position: relative;
-} */
+}
 
 li {
   cursor: pointer;
@@ -40,10 +40,11 @@ li {
     body,
     .intro {
         height: 100%;
-        background-color: rgb(13, 12, 12);
+        /* background-color: rgb(13, 12, 12); */
     }
     #band-button{
-      color: rgb(6, 187, 243);
+      /* color: rgb(6, 187, 243); */
+      color: #fff;
       background-color: rgb(38, 40, 45);
       border-radius: 25px;
       font-size: 15px;
@@ -61,12 +62,13 @@ li {
     #myInput:focus {outline: 3px solid #ddd;}
 
 .container{
-  text-align: center;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 2em;
-        border: 2px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
-        color: rgb(16, 22, 211);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2em;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+    color: rgb(16, 22, 211);
+    margin-bottom: 2rem;
     }
 
  
@@ -83,3 +85,11 @@ li {
         opacity: .6;
         background-attachment: fixed;
       }
+
+.list-group-item {
+  background-color: #4CAF50;
+}
+
+#recent-searches-list {
+  color: #000;
+}

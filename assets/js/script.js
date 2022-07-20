@@ -42,6 +42,7 @@ $('#recent-searches-list').children().on('click', function() {
       $('#glass-container').remove()
       $('#recent-searches').remove()
       $('#newSearch').append('<button id="refresh-button" class="btn-primary rounded">Click for New Search</button>')
+      $('#choices-list').remove()
       // It adds a refresh button that reloads the page when you click on it
       $('#refresh-button').on('click', function() {
         location.reload()
@@ -109,13 +110,14 @@ function getApi() {
         // This logic controls the text that displays in the popup marker when searching for a concert.
         marker.bindPopup(`<b>${arrayOfResults[currentOption].name}</b><br>Venue: ${arrayOfResults[currentOption]._embedded.venues[0].name}<br>Date: ${arrayOfResults[currentOption].dates.start.localDate}<br>Time: ${arrayOfResults[currentOption].dates.start.localTime}<br><a href="${arrayOfResults[currentOption].url}" target="_blank">See Web Page</a>`).openPopup();
         $('#choices').remove()
-        $('#newSerach').append('<button id="refresh-button" class="btn-primary rounded">Click for New Search</button>')
+        $('#newSearch').append('<button id="refresh-button" class="btn-primary rounded">Click for New Search</button>')
         $('#refresh-button').on('click', function() {
           location.reload()
         })
         // Adds new results to local storage
         arrayForLocalStorage.push(arrayOfResults[currentOption])
         localStorage.setItem(`search`, JSON.stringify(arrayForLocalStorage))
+        $('#choices-list').remove()
     })
    })
 }

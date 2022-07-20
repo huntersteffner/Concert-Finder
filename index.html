@@ -22,100 +22,26 @@
       integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
       crossorigin=""
     ></script>
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="icon" href="./images/musicicon.png" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Artist Concert locater Project</title>
   </head>
 
   <body>
-    <!-- NAVBAR -->
-    <div>
-      <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="#">Home</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- This is for testing the search by state feature. It can be removed later. You can add a dropdown for states anywhere you'd like in the HTML, but it must have the ID of state -->
-
-
-        <!-- Testing zone ended -->
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Concerts<span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Artists</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <!-- Dropdown -->
-              </a>
-              <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div> -->
-              <li class="nav-item">
-                <a class="nav-link" href="#">Venues</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <!-- Dropdown -->
-                </a>
-          </ul>
-            <div class="gcse-search"></div>
-            <script
-              async
-              src="https://cse.google.com/cse.js?cx=345446d1acba94144"></script>
-            </script>
-            </div>
-            </div>
-          </form>
-        </div>
-      </nav>
-    </div>
+    
     <header>
     <!-- JUMBOTRON -->
     <section id="jumboPicture">
       <div class="jumbotron">
-        <h1 class="display-4">G-10 Concert Lounge</h1>
-        <p class="lead">
+        <h1 class="display-4 text-white">Concert Finder</h1>
+        <p class="lead text-white">
  Bring music to life by discovering music on a new wave.
         </p>
         <hr class="my-4" />
-        <p>
+        <p class="text-white">
           Live Emersive Mind Blowing Experience
         </p>
       
@@ -139,10 +65,7 @@
                     </select>
                     </label>
                     </div>
-                  
-                  
                   <div class="col-md-2">
-
                     <input  class="btn btn-info btn-block btn-sm" 
                     id="band-button" type="submit" value="Search" />
                   </div>
@@ -150,85 +73,23 @@
               </div>
             </div>
       </div>
-  
-      
-      
-   
-        <p class="lead">
-
-         
-        </p>
+        <!-- <p class="lead"></p> -->
       </header>
       <div class="container">
-      <div id="recent-searches">
-        <h3>Recent Searches</h3>
-        <ul class="list-group" id="recent-searches-list">
-          <li class="list-group-item"></li>
-        </ul>
-      </div>
+        <div id="recent-searches">
+          <h3>Recent Searches</h3>
+          <ul class="list-group" id="recent-searches-list">
+            <li class="list-group-item"></li>
+          </ul>
+        </div>
+        <div id="newSearch"></div>
 
-      <div id="choices" class="card">
+      <!-- <div id="choices" class="card"> -->
         <ul id="choices-list" class="list-group"></ul>
-      </div>
-      <div id="newSearch">
       </div>
       </div>
         <div id="map">
         </div>
-  
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-    
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <a href="https://ticketmaster.com/" target="_blank">
-          <img src="./images/ticketmaster-post-logo-CONTENT-2019.jpg" alt="TicketMasterADD">
-          </a>
-        </div>
-    
-        <div class="item">
-          <a href="https://www.livenation.com/"  target="_blank">
-          <img src="./images/live-music-concert-online-advert-design-template-a23356f5d06d4587bd1d5d6f2c7bdf27_screen.jpg" alt="Live One">
-          </a>
-        </div>
-    
-        <div class="item">
-          <a href="https://open.spotify.com/"  target="_blank">
-          <img src="./images/Spotify-Ad-Studio.jpg" alt="SpotifyADD">
-          </a>
-        </div>
-    
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-      </a>
-      </div>
-      </section>
-
-    <!-- SECTION FOR GENRE -->
-
-
-   
- 
-   
-    
-    <!-- SECTION FOR UPCOMING FESTIVALS -->
-<div id="map"></div>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDbIZRWppqAlvQa0CTvZM3W_3lYTJGhVA&callback=initMap&v=weekly"
-      defer
-    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
