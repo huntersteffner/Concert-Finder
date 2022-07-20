@@ -70,7 +70,9 @@ for(let i = 0; i < options.length; i++) {
   select.appendChild(el);
 }
 // Fetch request to pull data from API
-function getApi() {
+function getApi(e) {
+  e.preventDefault()
+  console.log('Testing')
   $('#recent-searches').remove()
   // The line of code below pulls what the current selected state is.
   state = document.getElementById('myInput').value;
@@ -120,6 +122,9 @@ function getApi() {
         $('#choices-list').remove()
     })
    })
+   console.log('Test')
 }
 // When you click the band button, the API information is pulled
-bandButtonEl.addEventListener('click', getApi);
+// bandButtonEl.addEventListener('click', getApi);
+
+$('#band-button').on('click', getApi)
