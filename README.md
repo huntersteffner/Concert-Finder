@@ -1,5 +1,4 @@
-# G-10_Musical_Chairs
-# Concept Place Holder
+# Concert Finder
 
 ## Contributors:
 
